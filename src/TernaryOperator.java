@@ -14,7 +14,7 @@ public class TernaryOperator {
         }
 
         // Ist das Gleiche wie:
-        // Wenn withYear ist wahr (dann->) ? (mache->) ... (else->) : (mache->) ...
+        // Wenn withYear ist wahr (dann->) ? (mache->) ... (sonst->) : (mache->) ...
         System.out.println(withYear ? dateWithYear : dateWithoutYear);
     }
 }

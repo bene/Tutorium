@@ -10,25 +10,25 @@ public class Hanoi {
 
     static int towersOfHanoi(int amountOfDiscs, int n, String fromRod, String toRod, String tempRod) {
 
-        System.out.printf("%stowersOfHanoi(%d, %s, %s) {\n", creteSpacer(amountOfDiscs - n), n, fromRod, toRod);
+        System.out.printf("%stowersOfHanoi(%d, %s, %s) {\n", createSpacer(amountOfDiscs - n), n, fromRod, toRod);
 
         if (n == 1) {
-            System.out.printf("%s--> Moving disk 1 from rod %s to rod %s\n", creteSpacer(amountOfDiscs - n + 1), fromRod, toRod);
-            System.out.printf("%s}\n", creteSpacer(amountOfDiscs - n));
+            System.out.printf("%s--> Moving disk 1 from rod %s to rod %s\n", createSpacer(amountOfDiscs - n + 1), fromRod, toRod);
+            System.out.printf("%s}\n", createSpacer(amountOfDiscs - n));
             return 1;
         }
-        int moves = 1 + towersOfHanoi(amountOfDiscs, n - 1, fromRod, tempRod, toRod);
-        System.out.printf("%s--> Moving disk %d from rod %s to rod %s\n", creteSpacer(amountOfDiscs - n + 1), n, fromRod, toRod);
+        int moves = towersOfHanoi(amountOfDiscs, n - 1, fromRod, tempRod, toRod);
+        System.out.printf("%s--> Moving disk %d from rod %s to rod %s\n", createSpacer(amountOfDiscs - n + 1), n, fromRod, toRod);
         moves += towersOfHanoi(amountOfDiscs, n - 1, tempRod, toRod, fromRod);
 
-        System.out.printf("%s}\n", creteSpacer(amountOfDiscs - n));
+        System.out.printf("%s}\n", createSpacer(amountOfDiscs - n));
 
-        return moves;
+        return moves + 1;
     }
 
     // Erstellt einen String mit intents * zwei Leerzeichen
     // Bonus research: Mit einem StringBuilder kann die Funktion effizienter gemacht werden.
-    static String creteSpacer(int intents) {
+    static String createSpacer(int intents) {
         String s = "";
         for (int i = 0; i < intents; i++) {
             s += "  ";
