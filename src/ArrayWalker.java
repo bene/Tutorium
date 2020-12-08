@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ArrayWalker {
 
-    static char currentChar = 'B';
+    static char currentChar = 'A';
 
     public static void main(String[] args) {
 
@@ -77,10 +77,10 @@ public class ArrayWalker {
     static String nextChar() {
 
         if (currentChar >= 'Z') {
-            currentChar = 'A';
+            currentChar = 'A' - 1;
         }
 
-        return Character.toString(currentChar++);
+        return Character.toString(++currentChar);
     }
 
 
